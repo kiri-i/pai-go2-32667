@@ -1,0 +1,9 @@
+{
+ "version":"jump_feasibility_v1",
+ "cases":[
+  {"id":"step18","label":"単独段差18 cm","width_m":1.8,"first_edge_m":1.5,"landing_m":2.0,"stages":[{"id":"up","rise_m":0.18,"count":1}]},
+  {"id":"step26","label":"単独段差26 cm","width_m":1.8,"first_edge_m":1.5,"landing_m":2.0,"stages":[{"id":"up","rise_m":0.26,"count":1}]},
+  {"id":"gap20","label":"溝20 cm","kind":"gap","gap_m":0.2,"depth_m":0.4,"width_m":1.8,"first_edge_m":1.5,"landing_m":2.0},
+  {"id":"gap40","label":"溝40 cm","kind":"gap","gap_m":0.4,"depth_m":0.4,"width_m":1.8,"first_edge_m":1.5,"landing_m":2.0}
+ ]
+}

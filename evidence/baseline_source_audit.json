@@ -1,0 +1,40 @@
+{
+  "commit": "7529e35ff98a851d62015a369b38e29827676f46",
+  "files": [
+    {
+      "file": "isaaclab_tasks/core/velocity/config/go2/flat_env_cfg.py",
+      "url": "https://raw.githubusercontent.com/isaac-sim/IsaacLab/7529e35ff98a851d62015a369b38e29827676f46/source/isaaclab_tasks/isaaclab_tasks/core/velocity/config/go2/flat_env_cfg.py",
+      "official_sha256": "41161d05eb5be5015439acd96c4d04d4d750076aa7df650f5a0601743d4fa4e0",
+      "installed_sha256": "41161d05eb5be5015439acd96c4d04d4d750076aa7df650f5a0601743d4fa4e0",
+      "identical": true
+    },
+    {
+      "file": "isaaclab_tasks/core/velocity/config/go2/rough_env_cfg.py",
+      "url": "https://raw.githubusercontent.com/isaac-sim/IsaacLab/7529e35ff98a851d62015a369b38e29827676f46/source/isaaclab_tasks/isaaclab_tasks/core/velocity/config/go2/rough_env_cfg.py",
+      "official_sha256": "29b92a9fe8954109928fd94e1563217e6ca767260d70eba097ab4e3d3780a4f1",
+      "installed_sha256": "29b92a9fe8954109928fd94e1563217e6ca767260d70eba097ab4e3d3780a4f1",
+      "identical": true
+    },
+    {
+      "file": "isaaclab_tasks/core/velocity/config/go2/agents/rsl_rl_ppo_cfg.py",
+      "url": "https://raw.githubusercontent.com/isaac-sim/IsaacLab/7529e35ff98a851d62015a369b38e29827676f46/source/isaaclab_tasks/isaaclab_tasks/core/velocity/config/go2/agents/rsl_rl_ppo_cfg.py",
+      "official_sha256": "a570661333232eff3ddc29bdceecba373056e463b78b077a14e32a3536a476fe",
+      "installed_sha256": "a570661333232eff3ddc29bdceecba373056e463b78b077a14e32a3536a476fe",
+      "identical": true
+    },
+    {
+      "file": "isaaclab_tasks/core/velocity/velocity_env_cfg.py",
+      "url": "https://raw.githubusercontent.com/isaac-sim/IsaacLab/7529e35ff98a851d62015a369b38e29827676f46/source/isaaclab_tasks/isaaclab_tasks/core/velocity/velocity_env_cfg.py",
+      "official_sha256": "739e8da6cdc9e3d285697edc83b730d36c43f01ec9ae77e2f472aec6224397da",
+      "installed_sha256": "c25f3d28631516d3e00039ef6ad01c1d20e52ff1cd122f137394bbdf0803e06f",
+      "identical": false
+    },
+    {
+      "file": "isaaclab_assets/robots/unitree.py",
+      "url": "https://raw.githubusercontent.com/isaac-sim/IsaacLab/7529e35ff98a851d62015a369b38e29827676f46/source/isaaclab_assets/isaaclab_assets/robots/unitree.py",
+      "official_sha256": "ea47505ddf82d15895fa55a0a666b5c4800eba24782ece6080061b64cd51e54b",
+      "installed_sha256": "ea47505ddf82d15895fa55a0a666b5c4800eba24782ece6080061b64cd51e54b",
+      "identical": true
+    }
+  ]
+}

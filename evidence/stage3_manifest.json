@@ -1,0 +1,33 @@
+{
+  "parent": "training/terrain-gap-standard-stage2-001/final.pt",
+  "parent_sha256": "2f38281e57369e8e0f4f165beb99fa35a3a311943d0b8ca0f1c0d466e7337bfb",
+  "iterations": 400,
+  "num_envs": 1024,
+  "seed": 42,
+  "observations": 235,
+  "evaluation_cm": [
+    75,
+    80,
+    85,
+    90
+  ],
+  "arms": {
+    "continued": {
+      "stage": "jump",
+      "variant": "standard",
+      "hypothesis": "extra training budget alone"
+    },
+    "exposure": {
+      "stage": "hard",
+      "variant": "standard",
+      "hypothesis": "harder training terrain without reward changes"
+    },
+    "shaped": {
+      "stage": "hard",
+      "variant": "jump_balance",
+      "hypothesis": "composite rewards on identical harder terrain"
+    }
+  },
+  "primary_outcome": "unchanged LandingGoal stable completion; airborne bank transfer is secondary",
+  "limits": "single training seed exploratory comparison; select candidates then perturb initial position"
+}

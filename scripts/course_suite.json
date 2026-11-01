@@ -1,0 +1,12 @@
+{
+  "version": "realistic_suite_v1",
+  "role": "fixed evaluation only; not the official training terrain",
+  "cases": [
+    {"id":"threshold_02", "label":"敷居 2 cm", "width_m":1.8,"first_edge_m":1.5,"landing_m":2.0,"timeout_s":20,"stages":[{"id":"up","rise_m":0.02,"count":1},{"id":"down","rise_m":-0.02,"count":1}]},
+    {"id":"curb_05", "label":"低い縁石 5 cm", "width_m":1.8,"first_edge_m":1.5,"landing_m":2.0,"timeout_s":20,"stages":[{"id":"up","rise_m":0.05,"count":1},{"id":"down","rise_m":-0.05,"count":1}]},
+    {"id":"curb_10", "label":"縁石相当 10 cm", "width_m":1.8,"first_edge_m":1.5,"landing_m":2.0,"timeout_s":20,"stages":[{"id":"up","rise_m":0.10,"count":1},{"id":"down","rise_m":-0.10,"count":1}]},
+    {"id":"stairs_05", "label":"練習階段 5 cm × 3段", "width_m":1.8,"first_edge_m":1.5,"landing_m":2.0,"timeout_s":25,"stages":[{"id":"up","rise_m":0.05,"count":3,"tread_m":0.4},{"id":"down","rise_m":-0.05,"count":3,"tread_m":0.4}]},
+    {"id":"stairs_10", "label":"主目標 10 cm × 4段", "width_m":1.8,"first_edge_m":1.5,"landing_m":2.0,"timeout_s":30,"stages":[{"id":"up","rise_m":0.10,"count":4,"tread_m":0.3},{"id":"down","rise_m":-0.10,"count":4,"tread_m":0.3}]},
+    {"id":"stairs_15", "label":"発展目標 15 cm × 4段", "width_m":1.8,"first_edge_m":1.5,"landing_m":2.0,"timeout_s":30,"stages":[{"id":"up","rise_m":0.15,"count":4,"tread_m":0.3},{"id":"down","rise_m":-0.15,"count":4,"tread_m":0.3}]}
+  ]
+}

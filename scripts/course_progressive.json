@@ -1,0 +1,15 @@
+{
+  "name": "progressive_landings_v1",
+  "width_m": 1.8,
+  "first_edge_m": 1.0,
+  "landing_m": 1.8,
+  "stages": [
+    {"id": "S1", "rise_m": 0.01, "count": 1},
+    {"id": "S2", "rise_m": 0.02, "count": 1},
+    {"id": "S3", "rise_m": 0.03, "count": 1},
+    {"id": "S4", "rise_m": 0.05, "count": 1},
+    {"id": "S5", "rise_m": 0.08, "count": 2},
+    {"id": "S6", "rise_m": 0.12, "count": 2},
+    {"id": "S7", "rise_m": 0.18, "count": 3}
+  ]
+}

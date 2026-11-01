@@ -1,0 +1,26 @@
+name: Code checks
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  check:
+    runs-on: [self-hosted, linux, x64]
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: false
+      - name: CPU checks (no simulator or model download)
+        run: |
+          uv sync --locked --link-mode copy
+          uv run --locked python scripts/check_actions_policy.py
+          uv run --locked python -m compileall -q scripts
+          cd scripts
+          uv run --project .. --locked python -m unittest test_course_suite test_terrain_geometry test_recipe

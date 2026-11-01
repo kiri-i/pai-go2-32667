@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "base_url": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.2",
+  "assets": [
+    {
+      "path": "Isaac/IsaacLab/Robots/Unitree/Go2/go2.usd",
+      "sha256": "ba171c972b987d8c8fb7157ccad2ba9c0c1fed105755d2d8af46bef96cc11c6d"
+    },
+    {
+      "path": "Isaac/IsaacLab/Robots/Unitree/Go2/Props/instanceable_meshes.usd",
+      "sha256": "82087cf9d4f6deeecb3437560b6061847f5f0228f7e524e253ed5e88cf218c08"
+    }
+  ]
+}

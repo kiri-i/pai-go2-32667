@@ -1,0 +1,33 @@
+{
+  "parent": "training/terrain-stage3-exposure-001/final.pt",
+  "parent_sha256": "2a4aa31fb3f6ce8ba2a1f88287e5e71823ac7131b9567d05675935fb46677c8f",
+  "note": "parent hash is verified against complete.json before launch",
+  "arms": [
+    "standard",
+    "jump_balance",
+    "sequence = jump_balance + contact state machine"
+  ],
+  "hypothesis": "rewarding the ordered support-flight-stable-landing sequence can escape straddling solutions",
+  "same_terrain_m": [
+    0.55,
+    0.9
+  ],
+  "same_iterations": 400,
+  "same_envs": 1024,
+  "same_seed": 42,
+  "observation_unchanged": 235,
+  "evaluation_cm": [
+    80,
+    85,
+    90
+  ],
+  "sequence_terms": {
+    "takeoff_once_episode_integrated_reward": 0.2,
+    "airborne_forward_velocity_weight": 2,
+    "stable_landing_once_episode_integrated_reward": 2.0,
+    "min_flight_s": 0.04,
+    "stable_landing_s": 0.2
+  },
+  "evaluation_stability_s": 1.0,
+  "information_boundary": "phase and true per-environment far edge used by reward only; no added actor/critic inputs or action switching"
+}

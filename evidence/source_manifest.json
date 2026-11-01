@@ -1,0 +1,76 @@
+{
+  "origin": "Robot-sim-runtime 0c45f63 evaluator; subsequent isolated Go2 experiments",
+  "export_is_not_original_experiment_git_history": true,
+  "files": [
+    {
+      "file": "scripts/terrain_train.py",
+      "source": "experiment/code/terrain_train.py",
+      "source_sha256": "b5b5ec50bb9fb76794894f954b1a31797889333dc1593eae2a72d501246a808b"
+    },
+    {
+      "file": "scripts/probe_step.py",
+      "source": "experiment/code/probe_step.py",
+      "source_sha256": "f8cabd85c25692c7070540a71ee4a5c281d501dc918f1dc4b00e95b04e78b66c"
+    },
+    {
+      "file": "scripts/course_layout.py",
+      "source": "experiment/code/course_layout.py",
+      "source_sha256": "20ba5d050faa27149c5223e5c0e6e80c8d849f5cd5018ed01643deb11d137cf2"
+    },
+    {
+      "file": "scripts/course_metrics.py",
+      "source": "experiment/code/course_metrics.py",
+      "source_sha256": "cf77c87292c8c56a0c62b98ee903c6258c3ab9f8c7391d25f8cf8670a0c6f9c9"
+    },
+    {
+      "file": "scripts/jump_sequence.py",
+      "source": "experiment/code/jump_sequence.py",
+      "source_sha256": "bd7a77a79a414015de6205adecb54c66f08330ab3e7f1c9da93702532d5851f2"
+    },
+    {
+      "file": "scripts/test_course_suite.py",
+      "source": "experiment/code/test_course_suite.py",
+      "source_sha256": "7821062c47385a0e075804008f0b2ecdfd71a9551283044cf2f04de37e4836a8"
+    },
+    {
+      "file": "scripts/test_terrain_geometry.py",
+      "source": "experiment/code/test_terrain_geometry.py",
+      "source_sha256": "4ee5de6fdba4e4697cecd107c549137cbcbb65e0f63c239c8de7aabc0521799b"
+    },
+    {
+      "file": "scripts/test_jump_sequence.py",
+      "source": "experiment/code/test_jump_sequence.py",
+      "source_sha256": "6f60d7bf8ed0c36977a016806ef8fcc8c069d0e34db27336e51df747d09ca875"
+    },
+    {
+      "file": "scripts/course_frontier.json",
+      "source": "experiment/code/course_frontier.json",
+      "source_sha256": "008757eb1bb0ce07e27ae8a3110b773545a5c5a737e049ba50f1bee284776f0c"
+    },
+    {
+      "file": "scripts/course_progressive.json",
+      "source": "experiment/code/course_progressive.json",
+      "source_sha256": "b824d58bee171a6c33b1e0006463eb5fa5d6452060257edfb46c726aaf0dfaa8"
+    },
+    {
+      "file": "scripts/course_suite.json",
+      "source": "experiment/code/course_suite.json",
+      "source_sha256": "d003b3b1ce37240d5a36fb23a194d8b4f3675b8e9bcebccc75057a3f2a65a5f9"
+    },
+    {
+      "file": "scripts/course_feasibility.json",
+      "source": "experiment/code/course_feasibility.json",
+      "source_sha256": "d6fe7a00474eac4b1c104c143daacaae513707af2dd350377e060b2ed9d9bfb0"
+    },
+    {
+      "file": "scripts/probe_readable.py",
+      "source": "experiment/code/exploration_sources/readable_replay/probe_readable.py",
+      "source_sha256": "408bc76e3ff5cd68a42b31fc4dc8bdc49a4d02a211e0cadb047432f7c3e55197"
+    },
+    {
+      "file": "scripts/probe_side.py",
+      "source": "experiment/code/exploration_sources/readable_replay/probe_side.py",
+      "source_sha256": "04b1906db9e00fce89daba993755a7b5ada7aeccfdce3dbafe4ef0be7fd42714"
+    }
+  ]
+}

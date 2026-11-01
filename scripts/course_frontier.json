@@ -1,0 +1,203 @@
+{
+  "version": "rough_terrain_frontier_v1",
+  "cases": [
+    {
+      "id": "step28",
+      "label": "単独段差28 cm",
+      "width_m": 1.8,
+      "first_edge_m": 1.5,
+      "landing_m": 2.0,
+      "stages": [
+        {
+          "id": "up",
+          "rise_m": 0.28,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "step30",
+      "label": "単独段差30 cm",
+      "width_m": 1.8,
+      "first_edge_m": 1.5,
+      "landing_m": 2.0,
+      "stages": [
+        {
+          "id": "up",
+          "rise_m": 0.3,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "gap45",
+      "label": "溝45 cm",
+      "kind": "gap",
+      "gap_m": 0.45,
+      "depth_m": 0.4,
+      "width_m": 1.8,
+      "first_edge_m": 1.5,
+      "landing_m": 2.0
+    },
+    {
+      "id": "gap50",
+      "label": "溝50 cm",
+      "kind": "gap",
+      "gap_m": 0.5,
+      "depth_m": 0.4,
+      "width_m": 1.8,
+      "first_edge_m": 1.5,
+      "landing_m": 2.0
+    },
+    {
+      "id": "step32",
+      "label": "単独段差32 cm",
+      "width_m": 1.8,
+      "first_edge_m": 1.5,
+      "landing_m": 2.0,
+      "stages": [
+        {
+          "id": "up",
+          "rise_m": 0.32,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "step34",
+      "label": "単独段差34 cm",
+      "width_m": 1.8,
+      "first_edge_m": 1.5,
+      "landing_m": 2.0,
+      "stages": [
+        {
+          "id": "up",
+          "rise_m": 0.34,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "step36",
+      "label": "単独段差36 cm",
+      "width_m": 1.8,
+      "first_edge_m": 1.5,
+      "landing_m": 2.0,
+      "stages": [
+        {
+          "id": "up",
+          "rise_m": 0.36,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "gap55",
+      "label": "溝55 cm",
+      "kind": "gap",
+      "gap_m": 0.55,
+      "depth_m": 0.4,
+      "width_m": 1.8,
+      "first_edge_m": 1.5,
+      "landing_m": 2.0
+    },
+    {
+      "id": "gap60",
+      "label": "溝60 cm",
+      "kind": "gap",
+      "gap_m": 0.6,
+      "depth_m": 0.4,
+      "width_m": 1.8,
+      "first_edge_m": 1.5,
+      "landing_m": 2.0
+    },
+    {
+      "id": "step38",
+      "label": "単独段差38 cm",
+      "width_m": 1.8,
+      "first_edge_m": 1.5,
+      "landing_m": 2.0,
+      "stages": [
+        {
+          "id": "up",
+          "rise_m": 0.38,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "step40",
+      "label": "単独段差40 cm",
+      "width_m": 1.8,
+      "first_edge_m": 1.5,
+      "landing_m": 2.0,
+      "stages": [
+        {
+          "id": "up",
+          "rise_m": 0.4,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "gap65",
+      "label": "溝65 cm",
+      "kind": "gap",
+      "gap_m": 0.65,
+      "depth_m": 0.4,
+      "width_m": 1.8,
+      "first_edge_m": 1.5,
+      "landing_m": 2.0
+    },
+    {
+      "id": "gap70",
+      "label": "溝70 cm",
+      "kind": "gap",
+      "gap_m": 0.7,
+      "depth_m": 0.4,
+      "width_m": 1.8,
+      "first_edge_m": 1.5,
+      "landing_m": 2.0
+    },
+    {
+      "id": "gap75",
+      "label": "溝75 cm",
+      "kind": "gap",
+      "gap_m": 0.75,
+      "depth_m": 0.4,
+      "width_m": 1.8,
+      "first_edge_m": 1.5,
+      "landing_m": 2.0
+    },
+    {
+      "id": "gap80",
+      "label": "溝80 cm",
+      "kind": "gap",
+      "gap_m": 0.8,
+      "depth_m": 0.4,
+      "width_m": 1.8,
+      "first_edge_m": 1.5,
+      "landing_m": 2.0
+    },
+    {
+      "id": "gap85",
+      "label": "溝85 cm",
+      "kind": "gap",
+      "gap_m": 0.85,
+      "depth_m": 0.4,
+      "width_m": 1.8,
+      "first_edge_m": 1.5,
+      "landing_m": 2.0
+    },
+    {
+      "id": "gap90",
+      "label": "溝90 cm",
+      "kind": "gap",
+      "gap_m": 0.9,
+      "depth_m": 0.4,
+      "width_m": 1.8,
+      "first_edge_m": 1.5,
+      "landing_m": 2.0
+    }
+  ]
+}
