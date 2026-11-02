@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "report_trials": [
+    "standard85-minus",
+    "standard85",
+    "standard85-plus",
+    "balance85-minus",
+    "balance85-close",
+    "balance85-plus"
+  ],
+  "video_baseline_comparison_trial": "balance85-side",
+  "contact_analysis_trial": "balance85-close",
+  "contact_analysis_both_banks_seconds": 0.16,
+  "note": "Numerical records retained; workstation paths replaced. Original camera field is a CLI default; actual camera is listed here. Separate inference trials, not synchronized cameras.",
+  "records": [
+    {
+      "file": "evidence/evaluation/balance85-close.json",
+      "source_sha256": "7df75edbd321458804c3f23db4120d97406b740bafc72a1e2c9b26f3dd747915",
+      "checkpoint_sha256": "bf42b73d11db3efc25c57848b0de3f56bf6ef1d0b9efb647f0d61eec79a70dfd",
+      "offset_m": 0.0,
+      "outcome": "success",
+      "camera": "close_oblique",
+      "sha256": "34adc302ebf4943de92f0514c1764b0fb4d813a0ed8c58f83194822b6dae1a5a"
+    },
+    {
+      "file": "evidence/evaluation/balance85-minus.json",
+      "source_sha256": "35acd494fe54edd141ba02a05798ab6fd9798b8d6352c8cb65148e4fa230c471",
+      "checkpoint_sha256": "bf42b73d11db3efc25c57848b0de3f56bf6ef1d0b9efb647f0d61eec79a70dfd",
+      "offset_m": -0.15,
+      "outcome": "success",
+      "camera": "close_oblique",
+      "sha256": "9790e98082b7452dcf9fbf575e3235800efcc215a26fb2c3b1d690a7bf725117"
+    },
+    {
+      "file": "evidence/evaluation/balance85-plus.json",
+      "source_sha256": "0cea66722cd50c2e7f3595f3a2db87b4e3076e9878d207157eefbb6e702f724a",
+      "checkpoint_sha256": "bf42b73d11db3efc25c57848b0de3f56bf6ef1d0b9efb647f0d61eec79a70dfd",
+      "offset_m": 0.15,
+      "outcome": "terminated",
+      "camera": "close_oblique",
+      "sha256": "a182a9c75c63852c2c48cec8a3985d66f3ef06840c13f01feb9f82460c307d93"
+    },
+    {
+      "file": "evidence/evaluation/balance85-side.json",
+      "source_sha256": "63a4060cb0383f59279396a2d8bb06880e61f5af4e8a0aebb48f15976f9d14f8",
+      "checkpoint_sha256": "bf42b73d11db3efc25c57848b0de3f56bf6ef1d0b9efb647f0d61eec79a70dfd",
+      "offset_m": 0.0,
+      "outcome": "success",
+      "camera": "low_side",
+      "sha256": "760656983aa4f1f48539482953226fddb7f21a7940106507baf39c1a509e85dc"
+    },
+    {
+      "file": "evidence/evaluation/standard85-minus.json",
+      "source_sha256": "13ed6ab54120967261ea634e52b294aa1c0f905d946e4adcdb650d6ea0eb8382",
+      "checkpoint_sha256": "f9dc4403835e9ad62c8fa29a480c7eb79ccfc23cdeb01a91802bdbd0792981ab",
+      "offset_m": -0.15,
+      "outcome": "terminated",
+      "camera": "close_oblique",
+      "sha256": "24adca796cc8d67f21c00f0a0b45a781dd7eb6516e5da9eaec0a2c24615fa31e"
+    },
+    {
+      "file": "evidence/evaluation/standard85-plus.json",
+      "source_sha256": "8c6be8c7f0a2f9d60f5f8391540497bf170330a507b5f6e98f21330f59b81360",
+      "checkpoint_sha256": "f9dc4403835e9ad62c8fa29a480c7eb79ccfc23cdeb01a91802bdbd0792981ab",
+      "offset_m": 0.15,
+      "outcome": "terminated",
+      "camera": "close_oblique",
+      "sha256": "ec0ad8536a5685fe0790e009258c5bb7d24f5a9c9f6f4a2e362405c1e94fbc58"
+    },
+    {
+      "file": "evidence/evaluation/standard85.json",
+      "source_sha256": "d7d2dec44f77d24c4ddc334443fb97d70f098764c19f6716aa34d4ff7bea3b2a",
+      "checkpoint_sha256": "f9dc4403835e9ad62c8fa29a480c7eb79ccfc23cdeb01a91802bdbd0792981ab",
+      "offset_m": 0.0,
+      "outcome": "terminated",
+      "camera": "close_oblique",
+      "sha256": "67b402b65fbb06ae58be9480f40b225a28c1bc9f958a5c307fda3fa0fe0e1dfe"
+    }
+  ]
+}

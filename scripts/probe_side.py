@@ -1,7 +1,4 @@
-"""Finite Isaac Lab 3.0 evaluation of NVIDIA's flat Go2 PhysX and Newton checkpoints.
-
-This is independent of Isaac Sim's RobotPolicyRunner and never commands hardware.
-"""
+"""Evaluate a supplied Go2 checkpoint in simulation; never commands hardware."""
 
 import argparse
 import hashlib
@@ -16,21 +13,10 @@ from asset_manager import manifest_entries, verify_assets
 
 ROOT = Path(__file__).resolve().parents[1]
 TASK = "Isaac-Velocity-Flat-UnitreeGo2"
-CHECKPOINTS = {
-    "physx": (
-        "isaacsim_physx",
-        "Isaac-Velocity-Flat-UnitreeGo2_physx_none_rsl_rl.pt",
-        "b041421cc463bd8e748f4ad35a156c7f718b24497d46df224ae4c8371d48dfcf",
-    ),
-    "newton": (
-        "newton_mjwarp",
-        "Isaac-Velocity-Flat-UnitreeGo2_newtonmjwarp_none_rsl_rl.pt",
-        "72a52c337eefe55cabaf66d56ab4261d74a97e3d125ec610c88b35e7ca5d0f44",
-    ),
-}
+BACKENDS = {"physx": "isaacsim_physx", "newton": "newton_mjwarp"}
 
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument("--go2-backend", choices=CHECKPOINTS, default="physx")
+parser.add_argument("--go2-backend", choices=BACKENDS, default="physx")
 parser.add_argument("--height", type=float, default=0.1)
 parser.add_argument("--flat-plane", action="store_true", help="Use original plane terrain for flat baseline diagnosis")
 parser.add_argument("--nominal-physics", action="store_true", help="Disable mass and COM randomization for matched evaluation")
@@ -66,8 +52,8 @@ if not 1 <= args.stair_count <= 6 or not 0.2 <= args.tread <= 0.6:
 if not math.isfinite(args.approach_offset) or abs(args.approach_offset) > .5:
     parser.error("approach-offset must be within +/-0.5m")
 TASK = "Isaac-Velocity-Rough-UnitreeGo2" if args.rough else TASK
-PHYSICS, CHECKPOINT_NAME, EXPECTED_SHA = CHECKPOINTS[args.go2_backend]
-CHECKPOINT = args.checkpoint.resolve() if args.checkpoint else ROOT / ".local/sim/go2/lab30" / CHECKPOINT_NAME
+PHYSICS = BACKENDS[args.go2_backend]
+CHECKPOINT = args.checkpoint.resolve()
 if args.steps <= 0 or not math.isfinite(args.speed) or not 0.0 <= args.speed <= 1.0:
     parser.error("--steps must be positive and --speed must be in [0, 1]")
 if not 0 <= args.start_after < args.steps:
@@ -77,9 +63,7 @@ if args.stop_after is not None and not args.start_after < args.stop_after < args
 if not CHECKPOINT.is_file():
     parser.error(f"checkpointがありません: {CHECKPOINT}")
 checkpoint_sha = hashlib.sha256(CHECKPOINT.read_bytes()).hexdigest()
-if args.checkpoint is None and checkpoint_sha != EXPECTED_SHA:
-    parser.error("公式checkpointのhash不一致: prepare_lab30_policy.shを実行してください")
-checkpoint_source = "custom" if args.checkpoint else "nvidia_pretrained"
+checkpoint_source = "provided_checkpoint"
 if args.output.exists() or args.output.is_symlink():
     parser.error("既存の評価結果は上書きできません")
 try:
@@ -246,23 +230,24 @@ with launch_simulation(cfg, args):
         origin = env.unwrapped.scene.env_origins[0].detach().cpu().clone()
         start = robot.data.root_pos_w.torch[0].detach().cpu().clone() - origin
         # Display-only meshes: never registered with physics or terrain ray caster.
-        visualizer = next(v for v in env.unwrapped.sim.visualizers if v.cfg.visualizer_type == "newton_gl")
-        viewer = visualizer._viewer
-        import warp as wp
-        def display_box(name, size, position, color):
-            mesh = trimesh.creation.box(extents=size)
-            mesh.apply_translation(position)
-            viewer.log_mesh(name, wp.array(mesh.vertices.astype(np.float32), dtype=wp.vec3, device=viewer.device), wp.array(mesh.faces.astype(np.int32).flatten(), dtype=wp.int32, device=viewer.device), color=color)
-        edge = course_config["first_edge_m"]
-        far = edge + course_config["gap_m"]
-        depth = course_config["depth_m"]
-        display_box("presentation_start_bank", (edge+8, 8, .004), ((edge-8)/2, 0, .001), (.22,.35,.43))
-        display_box("presentation_landing_bank", (8, 8, .004), (far+4,0,.001), (.28,.43,.50))
-        display_box("presentation_gap_bottom", (far-edge,8,.004), ((far+edge)/2,0,-depth+.003), (.025,.065,.105))
-        display_box("presentation_near_wall", (.004,8,depth), (edge-.003,0,-depth/2), (.10,.20,.28))
-        display_box("presentation_far_wall", (.004,8,depth), (far+.003,0,-depth/2), (.10,.20,.28))
-        for x in (edge,far):
-            display_box("presentation_edge_"+str(x), (.025,8,.004), (x,0,.005), (1.,.72,.08))
+        visualizer = next((v for v in env.unwrapped.sim.visualizers if v.cfg.visualizer_type == "newton_gl"), None)
+        if visualizer is not None:
+            viewer = visualizer._viewer
+            import warp as wp
+            def display_box(name, size, position, color):
+                mesh = trimesh.creation.box(extents=size)
+                mesh.apply_translation(position)
+                viewer.log_mesh(name, wp.array(mesh.vertices.astype(np.float32), dtype=wp.vec3, device=viewer.device), wp.array(mesh.faces.astype(np.int32).flatten(), dtype=wp.int32, device=viewer.device), color=color)
+            edge = course_config["first_edge_m"]
+            far = edge + course_config["gap_m"]
+            depth = course_config["depth_m"]
+            display_box("presentation_start_bank", (edge+8, 8, .004), ((edge-8)/2, 0, .001), (.22,.35,.43))
+            display_box("presentation_landing_bank", (8, 8, .004), (far+4,0,.001), (.28,.43,.50))
+            display_box("presentation_gap_bottom", (far-edge,8,.004), ((far+edge)/2,0,-depth+.003), (.025,.065,.105))
+            display_box("presentation_near_wall", (.004,8,depth), (edge-.003,0,-depth/2), (.10,.20,.28))
+            display_box("presentation_far_wall", (.004,8,depth), (far+.003,0,-depth/2), (.10,.20,.28))
+            for x in (edge,far):
+                display_box("presentation_edge_"+str(x), (.025,8,.004), (x,0,.005), (1.,.72,.08))
         initial_quat = robot.data.root_quat_w.torch[0].detach().cpu().clone()
         foot_ids, _ = robot.find_bodies(".*_foot")
         if len(foot_ids) != 4:
@@ -407,7 +392,7 @@ with launch_simulation(cfg, args):
             "foot_names": foot_names,
             "video_dir": str(args.video_dir) if args.video_dir else None,
             "video_frames": video_frames,
-            "camera": args.camera,
+            "camera": 'low_side' if args.video_dir else None,
             "probe_source_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
             "step_edge_x_m": 1.0,
             "probe_note": "passed is inherited locomotion smoke criterion, NOT step success",
@@ -434,14 +419,15 @@ with launch_simulation(cfg, args):
             "minimum_height_m": min_height,
             "upright": upright,
             "error": error,
-            "passed": passed,
+            "passed": passed,  # Legacy field; use course_outcome for task completion.
+            "locomotion_smoke_passed": passed,
             "samples": samples,
         }
         args.output.parent.mkdir(parents=True, exist_ok=True)
         with args.output.open("x", encoding="utf-8") as output:
             json.dump(result, output, indent=2, allow_nan=False)
         print(
-            f"GO2_LAB30_EVAL passed={passed} forward_m={forward:.4f} min_height_m={min_height:.4f} output={args.output}",
+            f"GO2_LAB30_EVAL course_outcome={result['course_outcome']} locomotion_smoke_passed={passed} forward_m={forward:.4f} min_height_m={min_height:.4f} output={args.output}",
             flush=True,
         )
         if (goal and not goal.success) or (not goal and not passed):

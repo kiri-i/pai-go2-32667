@@ -1,6 +1,6 @@
 import unittest
 from pathlib import Path
-from reproduce import STAGES, command
+from reproduce import STAGES, MAIN_STAGES, command
 class RecipeTests(unittest.TestCase):
     def test_every_parent_is_declared_before_child(self):
         seen = set()
@@ -18,6 +18,14 @@ class RecipeTests(unittest.TestCase):
         self.assertNotIn("--checkpoint", command("baseline", "python", Path("runs")))
     def test_evaluation_dimensions_exist(self):
         import json
-        cases = json.loads(Path("course_frontier.json").read_text())["cases"]
+        cases = json.loads(Path(__file__).with_name("course_frontier.json").read_text())["cases"]
         ids = {case["id"] for case in cases}
         self.assertTrue({"gap75", "gap80", "gap85", "gap90"}.issubset(ids))
+
+    def test_main_recipe_excludes_exploratory_arms(self):
+        self.assertEqual(MAIN_STAGES, ("baseline", "first", "second", "stage3-exposure", "stage4-standard", "stage4-balance"))
+        seen = set()
+        for stage in MAIN_STAGES:
+            if STAGES[stage]:
+                self.assertIn(STAGES[stage][0], seen)
+            seen.add(stage)

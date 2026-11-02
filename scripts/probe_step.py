@@ -1,7 +1,4 @@
-"""Finite Isaac Lab 3.0 evaluation of NVIDIA's flat Go2 PhysX and Newton checkpoints.
-
-This is independent of Isaac Sim's RobotPolicyRunner and never commands hardware.
-"""
+"""Evaluate a supplied Go2 checkpoint in simulation; never commands hardware."""
 
 import argparse
 import hashlib
@@ -16,21 +13,10 @@ from asset_manager import manifest_entries, verify_assets
 
 ROOT = Path(__file__).resolve().parents[1]
 TASK = "Isaac-Velocity-Flat-UnitreeGo2"
-CHECKPOINTS = {
-    "physx": (
-        "isaacsim_physx",
-        "Isaac-Velocity-Flat-UnitreeGo2_physx_none_rsl_rl.pt",
-        "b041421cc463bd8e748f4ad35a156c7f718b24497d46df224ae4c8371d48dfcf",
-    ),
-    "newton": (
-        "newton_mjwarp",
-        "Isaac-Velocity-Flat-UnitreeGo2_newtonmjwarp_none_rsl_rl.pt",
-        "72a52c337eefe55cabaf66d56ab4261d74a97e3d125ec610c88b35e7ca5d0f44",
-    ),
-}
+BACKENDS = {"physx": "isaacsim_physx", "newton": "newton_mjwarp"}
 
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument("--go2-backend", choices=CHECKPOINTS, default="physx")
+parser.add_argument("--go2-backend", choices=BACKENDS, default="physx")
 parser.add_argument("--height", type=float, default=0.1)
 parser.add_argument("--flat-plane", action="store_true", help="Use original plane terrain for flat baseline diagnosis")
 parser.add_argument("--nominal-physics", action="store_true", help="Disable mass and COM randomization for matched evaluation")
@@ -66,8 +52,8 @@ if not 1 <= args.stair_count <= 6 or not 0.2 <= args.tread <= 0.6:
 if not math.isfinite(args.approach_offset) or abs(args.approach_offset) > .5:
     parser.error("approach-offset must be within +/-0.5m")
 TASK = "Isaac-Velocity-Rough-UnitreeGo2" if args.rough else TASK
-PHYSICS, CHECKPOINT_NAME, EXPECTED_SHA = CHECKPOINTS[args.go2_backend]
-CHECKPOINT = args.checkpoint.resolve() if args.checkpoint else ROOT / ".local/sim/go2/lab30" / CHECKPOINT_NAME
+PHYSICS = BACKENDS[args.go2_backend]
+CHECKPOINT = args.checkpoint.resolve()
 if args.steps <= 0 or not math.isfinite(args.speed) or not 0.0 <= args.speed <= 1.0:
     parser.error("--steps must be positive and --speed must be in [0, 1]")
 if not 0 <= args.start_after < args.steps:
@@ -77,9 +63,7 @@ if args.stop_after is not None and not args.start_after < args.stop_after < args
 if not CHECKPOINT.is_file():
     parser.error(f"checkpointがありません: {CHECKPOINT}")
 checkpoint_sha = hashlib.sha256(CHECKPOINT.read_bytes()).hexdigest()
-if args.checkpoint is None and checkpoint_sha != EXPECTED_SHA:
-    parser.error("公式checkpointのhash不一致: prepare_lab30_policy.shを実行してください")
-checkpoint_source = "custom" if args.checkpoint else "nvidia_pretrained"
+checkpoint_source = "provided_checkpoint"
 if args.output.exists() or args.output.is_symlink():
     parser.error("既存の評価結果は上書きできません")
 try:
@@ -420,14 +404,15 @@ with launch_simulation(cfg, args):
             "minimum_height_m": min_height,
             "upright": upright,
             "error": error,
-            "passed": passed,
+            "passed": passed,  # Legacy field; use course_outcome for task completion.
+            "locomotion_smoke_passed": passed,
             "samples": samples,
         }
         args.output.parent.mkdir(parents=True, exist_ok=True)
         with args.output.open("x", encoding="utf-8") as output:
             json.dump(result, output, indent=2, allow_nan=False)
         print(
-            f"GO2_LAB30_EVAL passed={passed} forward_m={forward:.4f} min_height_m={min_height:.4f} output={args.output}",
+            f"GO2_LAB30_EVAL course_outcome={result['course_outcome']} locomotion_smoke_passed={passed} forward_m={forward:.4f} min_height_m={min_height:.4f} output={args.output}",
             flush=True,
         )
         if (goal and not goal.success) or (not goal and not passed):

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "release": "v1.0.0",
+  "format": "RSL-RL PyTorch checkpoint",
+  "models": [
+    {
+      "id": "baseline",
+      "file": "baseline.pt",
+      "sha256": "20b5bf7b459d5d0ca6a3e958710efc29d8e98a704f87009a7d3a35dc13f9be54",
+      "bytes": 6882293,
+      "parent": null,
+      "url": "https://github.com/kiri-i/pai-go2-32667/releases/download/v1.0.0/baseline.pt",
+      "iterations": 1500,
+      "seed": 42
+    },
+    {
+      "id": "first",
+      "file": "first.pt",
+      "sha256": "6c528f2aed8cb29ee23fabea255d6553f956718ea7adcb12fb1123457ac8a84b",
+      "bytes": 6879235,
+      "parent": "baseline",
+      "url": "https://github.com/kiri-i/pai-go2-32667/releases/download/v1.0.0/first.pt",
+      "iterations": 400,
+      "seed": 42
+    },
+    {
+      "id": "second",
+      "file": "second.pt",
+      "sha256": "2f38281e57369e8e0f4f165beb99fa35a3a311943d0b8ca0f1c0d466e7337bfb",
+      "bytes": 6879235,
+      "parent": "first",
+      "url": "https://github.com/kiri-i/pai-go2-32667/releases/download/v1.0.0/second.pt",
+      "iterations": 400,
+      "seed": 42
+    },
+    {
+      "id": "stage3-exposure",
+      "file": "stage3-exposure.pt",
+      "sha256": "2a4aa31fb3f6ce8ba2a1f88287e5e71823ac7131b9567d05675935fb46677c8f",
+      "bytes": 6879235,
+      "parent": "second",
+      "url": "https://github.com/kiri-i/pai-go2-32667/releases/download/v1.0.0/stage3-exposure.pt",
+      "iterations": 400,
+      "seed": 42
+    },
+    {
+      "id": "stage4-standard",
+      "file": "stage4-standard.pt",
+      "sha256": "f9dc4403835e9ad62c8fa29a480c7eb79ccfc23cdeb01a91802bdbd0792981ab",
+      "bytes": 6879235,
+      "parent": "stage3-exposure",
+      "url": "https://github.com/kiri-i/pai-go2-32667/releases/download/v1.0.0/stage4-standard.pt",
+      "iterations": 400,
+      "seed": 42
+    },
+    {
+      "id": "stage4-balance",
+      "file": "stage4-balance.pt",
+      "sha256": "bf42b73d11db3efc25c57848b0de3f56bf6ef1d0b9efb647f0d61eec79a70dfd",
+      "bytes": 6879235,
+      "parent": "stage3-exposure",
+      "url": "https://github.com/kiri-i/pai-go2-32667/releases/download/v1.0.0/stage4-balance.pt",
+      "iterations": 400,
+      "seed": 42
+    }
+  ]
+}

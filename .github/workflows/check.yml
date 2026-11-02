@@ -23,4 +23,4 @@ jobs:
           uv run --locked python scripts/check_actions_policy.py
           uv run --locked python -m compileall -q scripts
           cd scripts
-          uv run --project .. --locked python -m unittest test_course_suite test_terrain_geometry test_recipe
+          uv run --project .. --locked python -m unittest test_course_suite test_terrain_geometry test_recipe test_download_models
