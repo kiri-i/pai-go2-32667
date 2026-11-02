@@ -230,23 +230,24 @@ with launch_simulation(cfg, args):
         origin = env.unwrapped.scene.env_origins[0].detach().cpu().clone()
         start = robot.data.root_pos_w.torch[0].detach().cpu().clone() - origin
         # Display-only meshes: never registered with physics or terrain ray caster.
-        visualizer = next(v for v in env.unwrapped.sim.visualizers if v.cfg.visualizer_type == "newton_gl")
-        viewer = visualizer._viewer
-        import warp as wp
-        def display_box(name, size, position, color):
-            mesh = trimesh.creation.box(extents=size)
-            mesh.apply_translation(position)
-            viewer.log_mesh(name, wp.array(mesh.vertices.astype(np.float32), dtype=wp.vec3, device=viewer.device), wp.array(mesh.faces.astype(np.int32).flatten(), dtype=wp.int32, device=viewer.device), color=color)
-        edge = course_config["first_edge_m"]
-        far = edge + course_config["gap_m"]
-        depth = course_config["depth_m"]
-        display_box("presentation_start_bank", (edge+8, 8, .004), ((edge-8)/2, 0, .001), (.22,.35,.43))
-        display_box("presentation_landing_bank", (8, 8, .004), (far+4,0,.001), (.28,.43,.50))
-        display_box("presentation_gap_bottom", (far-edge,8,.004), ((far+edge)/2,0,-depth+.003), (.025,.065,.105))
-        display_box("presentation_near_wall", (.004,8,depth), (edge-.003,0,-depth/2), (.10,.20,.28))
-        display_box("presentation_far_wall", (.004,8,depth), (far+.003,0,-depth/2), (.10,.20,.28))
-        for x in (edge,far):
-            display_box("presentation_edge_"+str(x), (.025,8,.004), (x,0,.005), (1.,.72,.08))
+        visualizer = next((v for v in env.unwrapped.sim.visualizers if v.cfg.visualizer_type == "newton_gl"), None)
+        if visualizer is not None:
+            viewer = visualizer._viewer
+            import warp as wp
+            def display_box(name, size, position, color):
+                mesh = trimesh.creation.box(extents=size)
+                mesh.apply_translation(position)
+                viewer.log_mesh(name, wp.array(mesh.vertices.astype(np.float32), dtype=wp.vec3, device=viewer.device), wp.array(mesh.faces.astype(np.int32).flatten(), dtype=wp.int32, device=viewer.device), color=color)
+            edge = course_config["first_edge_m"]
+            far = edge + course_config["gap_m"]
+            depth = course_config["depth_m"]
+            display_box("presentation_start_bank", (edge+8, 8, .004), ((edge-8)/2, 0, .001), (.22,.35,.43))
+            display_box("presentation_landing_bank", (8, 8, .004), (far+4,0,.001), (.28,.43,.50))
+            display_box("presentation_gap_bottom", (far-edge,8,.004), ((far+edge)/2,0,-depth+.003), (.025,.065,.105))
+            display_box("presentation_near_wall", (.004,8,depth), (edge-.003,0,-depth/2), (.10,.20,.28))
+            display_box("presentation_far_wall", (.004,8,depth), (far+.003,0,-depth/2), (.10,.20,.28))
+            for x in (edge,far):
+                display_box("presentation_edge_"+str(x), (.025,8,.004), (x,0,.005), (1.,.72,.08))
         initial_quat = robot.data.root_quat_w.torch[0].detach().cpu().clone()
         foot_ids, _ = robot.find_bodies(".*_foot")
         if len(foot_ids) != 4:
