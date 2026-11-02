@@ -33,19 +33,22 @@
 
 | 評価実行 | 標準報酬モデル (`stage4-standard`) | 報酬変更モデル (`stage4-balance`) | 備考 |
 |---|---|---|---|
-| **本検証の主評価（映像・接触記録用実行）** | 成功 **0 / 3**（全3位置で失敗） | 成功 **2 / 3**（$-0.15\,\text{m},\ 0.0\,\text{m}$ で成功、$+0.15\,\text{m}$ で溝内接触失敗） | [`report/report.md`](report/report.md) の主結果、比較動画 `comparison.mp4`、および基準位置（$0.0\,\text{m}$、`close` 視点）での両岸同時支持 $0.16\,\text{s}$ の解析に対応する実行 |
+| **本検証の主評価（映像・接触記録用実行）** | 成功 **0 / 3**（全3位置で失敗） | 成功 **2 / 3**（$-0.15\,\text{m},\ 0.0\,\text{m}$ で成功、$+0.15\,\text{m}$ で溝内接触失敗） | [`report/report.md`](report/report.md) の主結果、比較動画 `comparison.mp4`、および基準位置（$0.0\,\text{m}$、`close` 視点1試行）での両岸同時支持 $0.16\,\text{s}$（$8\,\text{step}$）の解析に対応する実行 |
 | **学習直後の元評価** | 成功 **0 / 3**（全3位置で失敗） | 成功 **3 / 3**（全3位置で成功） | 学習完了直後に実施した評価記録（詳細は [`report/appendix.md`](report/appendix.md) Appendix A.3） |
 
-同じ重みファイルと評価コードであっても、助走距離が最も短い $+0.15\,\text{m}$（$15\,\text{cm}$ 近い位置）条件において実行間で成否が分かれた。この差が生じた具体的な原因は特定されておらず、シミュレータおよび描画環境の非決定性に対する境界的な感度として留保している。報告書本文（[`report/report.md`](report/report.md)）では、動画および接触反力時系列データと完全に対応する「成功 $0/3$ 対 $2/3$」を主結果として報告している。
+同じ重みファイルと評価コードであっても、助走距離が最も短い $+0.15\,\text{m}$（$15\,\text{cm}$ 近い位置）条件において実行間で成否が分かれた。この差が生じた具体的な原因は未確定であり、特定の要因を断定せず観測事実として留保し、実行ごとに別試行として扱っている。報告書本文（[`report/report.md`](report/report.md)）では、動画および接触反力時系列データと完全に対応する「成功 $0/3$ 対 $2/3$」を主結果として報告している。
+
+主評価で記録された数値JSON（公開時に特定ホストの絶対パスのみを置換した計7本）は `../evidence/evaluation/*.json` に収められており、[`../evidence/evaluation_manifest.json`](../evidence/evaluation_manifest.json) に置換前後のSHA-256ハッシュ、実際のカメラ設定、および報告書本文・比較動画との試行対応を記録している。内訳は主比較2モデル×3開始位置の6試行と、比較動画の側面映像用に別試行として収録された `side` 視点1試行の計7本であり、両岸同時支持 $0.16\,\text{s}$（$8\,\text{step}$）の定量解析は基準開始位置（$0.0\,\text{m}$）の `close` 視点1試行に対応する（`uv run python scripts/summarize_results.py` でハッシュ照合と再集計が可能）。
 
 ## 5. 証拠ファイルとハッシュ一覧
 
 | ファイルパス | 記録内容 |
 |---|---|
 | [`../models/manifest.json`](../models/manifest.json) | Release `v1.0.0` で配布する全6モデルのファイルサイズ、SHA-256ハッシュ、親段階、乱数シード（`seed=42`）、反復数 |
+| [`../evidence/evaluation_manifest.json`](../evidence/evaluation_manifest.json) | 収録済み評価JSON（`../evidence/evaluation/*.json`、計7本）の元ハッシュ、絶対パス置換後の公開ハッシュ、実カメラ設定、本文解析（`close`）および比較動画（`side` 別試行を含む）との試行対応 |
 | [`../evidence/baseline_source_audit.json`](../evidence/baseline_source_audit.json) | Isaac Lab 基準コミット（`7529e35ff98a851d62015a369b38e29827676f46`）に対する公式設定ファイルのSHA-256照合結果 |
 | [`../evidence/stage3_manifest.json`](../evidence/stage3_manifest.json) | 第3段階（`stage3-exposure` 等）の元実験チェックポイントのハッシュと学習条件記録 |
 | [`../evidence/stage4_manifest.json`](../evidence/stage4_manifest.json) | 第4段階（`stage4-standard`, `stage4-balance` 等）の元実験チェックポイントのハッシュと学習条件記録 |
 | [`../evidence/source_manifest.json`](../evidence/source_manifest.json) | 元実験コードとリポジトリ内スクリプトの対応関係およびSHA-256ハッシュ |
 
-`stage3_manifest.json`、`stage4_manifest.json`、および `models/manifest.json` に記録されたチェックポイントのSHA-256ハッシュは、元の実験で生成された重みファイルを識別するためのものであり、新規に再学習した際に同一ハッシュが生成されることは期待しない。
+`stage3_manifest.json`、`stage4_manifest.json`、および `models/manifest.json` に記録されたチェックポイントのSHA-256ハッシュは、元の実験で生成された重みファイルを識別するためのものであり、新規に再学習した際に同一ハッシュが生成されることは保証しない。
