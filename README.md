@@ -1,90 +1,60 @@
-# フィジカルAI講座 最終課題 — Go2の溝踏破（32667）
+# Physical AI応用1講座 最終課題 — 四脚ロボットGo2の溝渡り（32667）
 
-Isaac Labの四足ロボットGo2を対象に、学習地形の変更と報酬の再設計を比較する実験コードです。地形高スキャンを含む235次元の観測を使用し、入力や行動空間を追加せずに溝の踏破を学習します。シミュレーションによる評価であり、実機検証ではありません。
+本検証は、物理シミュレーション（Isaac Lab / Newton）上の四脚ロボット Unitree Go2 を対象に、幅 85 cm・深さ 40 cm の溝を渡る動作が強化学習（PPO）の報酬設計の変更によって獲得できるかを調べた実験コードと再現環境である。溝幅を段階的に広げて事前学習した同じ学習済みモデルを出発点とし、同じ溝地形分布（幅 55–90 cm・深さ 40 cm）・同じ更新回数（400反復）・同じ乱数シード（`seed=42`）で追加学習した標準報酬モデル（`stage4-standard`、対照群）と報酬変更モデル（`stage4-balance`、変更群）の報酬比較を行う。本検証はすべてシミュレーション上の評価であり、実機検証ではない。
 
-## 構成
+## 1. 主比較の結果（幅85 cm溝・開始位置3条件）
 
-| ファイル | 内容 |
-|---|---|
-| `scripts/train_baseline.py` | 公式不整地タスクのランダム初期化学習 |
-| `scripts/terrain_train.py` | 溝地形での継続学習、報酬条件の比較 |
-| `scripts/reproduce.py` | 学習の依存順序とコマンド生成 |
-| `scripts/evaluate.py` | 固定幅・3開始位置での評価と動画記録 |
-| `scripts/course_metrics.py` | 接触履歴と姿勢を含む成功判定 |
-| `scripts/probe_step.py` | 元の評価描画 |
-| `scripts/probe_readable.py`, `scripts/probe_side.py` | 地形の配色とカメラを変更した評価描画 |
-| `sim/uv.lock` | 実験に用いたシミュレータ依存の固定版 |
-| `evidence/` | 公式タスクの照合結果、比較条件、元ファイルのハッシュ |
+報酬変更モデルでは、定常歩行向けの安定性ペナルティ5項目を緩和し、前進と対岸支持を促す加点5項目および横ずれ・左右の傾きを抑える減点2項目（計7項目）を追加した。単一シード（`seed=42`）の学習済み重みに対し、溝へ進入する歩容位相の差を見るため開始位置を3条件（遠い `-0.15 m`・基準 `0.0 m`・近い `+0.15 m`）変えて評価した。通過成功数の分母「3」は開始位置の条件数であり、学習シード数は1である。
 
-## 実行環境
+| モデル | 追加学習条件（共通：溝55–90 cm・400反復・`seed=42`） | 通過成功数 | 開始位置3条件の内訳と挙動 |
+|---|---|---:|---|
+| `stage4-standard`（対照） | 標準の不整地歩行報酬を維持 | **0 / 3** | 全3条件（`-0.15, 0.0, +0.15 m`）で溝内へ接触・落下し失敗 |
+| `stage4-balance`（変更） | 安定性減点5項目を緩和＋前進・対岸支持など7項目を追加 | **2 / 3** | `-0.15 m` と基準 `0.0 m` で通過成功、近い `+0.15 m` は溝内接触で失敗 |
 
-Linux x86_64、Python 3.12、CUDA対応GPU、uv、ffmpegが必要です。実験環境はIsaac Lab 3.0.0、Isaac Sim 6.2、Newton 1.6.1、PyTorch 2.11.0です。GPUドライバはインストール処理に含めません。通常のPython環境とは分離して構築します。依存の配布条件は各提供元に従ってください。
+基準開始位置（`0.0 m`、`close`）の成功1試行を解析すると、手前岸に後脚を残したまま前脚を対岸へ接地させ、0.16秒（8ステップ）の両岸同時支持を作ってから後脚を引き寄せる跨ぎ動作が確認された。この両岸支持の定量解析は基準位置1試行のみを対象としており、全成功試行へ一般化するものではない。また、4脚すべてが浮いたまま跳び越える空中ジャンプの獲得は主張しない。
 
-Isaac Simを初めて起動するとライセンス同意を求められます。内容を確認し同意した環境では、実行前に`export OMNI_KIT_ACCEPT_EULA=YES`を設定できます。
+![基準開始位置における標準報酬モデルと報酬変更モデルの動作比較](docs/figures/figure1_task.png)
+
+## 2. 最短確認・評価手順
+
+### 経路A：既存記録の再集計（GPU不要）
+
+リポジトリ内の公開JSONのハッシュ照合、通過成功数（`0 / 3` 対 `2 / 3`）、および基準位置（`close`）における両岸同時支持（0.16秒 / 8ステップ）の再集計は、GPUなしで実行できる。
 
 ```bash
+git clone https://github.com/kiri-i/pai-go2-32667.git
+cd pai-go2-32667
+uv run python scripts/summarize_results.py
+```
+
+### 経路B：学習済みモデルによる新規推論（要GPU）
+
+新規推論には Linux x86_64、CUDA対応GPU、`uv`、`ffmpeg` が必要である。Isaac Simの利用規約（EULA）を確認し同意した環境でのみ `export OMNI_KIT_ACCEPT_EULA=YES` を設定する。シミュレータ構築とモデル配布・取得は別手順に分かれている。学習手順や評価オプションの詳細は [`docs/reproduction.md`](docs/reproduction.md) に記載している。
+
+```bash
+# 1. シミュレータ環境（.local/sim）の構築とロボットUSDの取得
 bash scripts/setup_sim.sh
+
+# 2. 主比較2モデルの取得（既定2モデル、GPU不要で取得・SHA-256ハッシュ照合）
+uv run python scripts/download_models.py
+
+# 3. 幅85 cm溝・開始位置3条件での新規推論と動画出力
+uv run python scripts/evaluate.py --checkpoint .local/models/stage4-standard.pt --gap-cm 85 --output runs/evaluation-85-standard --view readable
+uv run python scripts/evaluate.py --checkpoint .local/models/stage4-balance.pt --gap-cm 85 --output runs/evaluation-85-balance --view readable
 ```
 
-この処理は`sim/uv.lock`から`.local/sim`を構築し、記録済みの材質API互換修正をハッシュ照合後に適用します。ロボットUSDはNVIDIA配布元から`.local/assets`へ取得し、SHA-256を検証します。USD、学習済み重み、収録データはリポジトリに含めません。環境を再構築する場合も、既存環境を削除せず別のチェックアウトを使用してください。
+## 3. 本検証の限界と留保
 
-公式設定の照合基準はIsaac Labコミット`7529e35ff98a851d62015a369b38e29827676f46`です。インストールには固定wheelを使用し、`evidence/baseline_source_audit.json`の各設定ファイルのハッシュを検証します。wheel全体を当該Gitコミットと同一とみなすものではありません。
+- **複合報酬の個別寄与は未分離**：5係数の緩和と7項目の追加を一括適用しており、個別項目の寄与を切り分ける検証は実施していない。
+- **単一シード・実機未確認**：追加学習は `seed=42` の1シードのみで、実機環境での有効性は未確認である。
+- **同一重みでの再実行差**：同一の学習済み重み（`stage4-balance.pt`）でも再実行によって成否が変わった事実があり、その原因は特定されていない。新規評価の実行は元の収録とは別試行として扱い、基準位置1試行の両岸支持解析も他の成功試行へ一般化しない。
 
-## 学習
+## 4. 配布物（Release `v1.0.0`）と詳細文書
 
-以下はコマンドを表示するだけです。実行には`--execute`を付けます。既存の出力ディレクトリへの上書きは拒否します。
+報告書PDF・比較動画・学習済み6モデル（計約41 MB）は [GitHub Release `v1.0.0`](https://github.com/kiri-i/pai-go2-32667/releases/tag/v1.0.0)（各ファイルは `https://github.com/kiri-i/pai-go2-32667/releases/download/v1.0.0/<filename>`）で公開している。コード詳細、報酬係数、親モデルの系譜、旧評価との比較は以下を参照されたい。
 
-```bash
-uv run python scripts/reproduce.py all
-uv run python scripts/reproduce.py baseline --execute
-uv run python scripts/reproduce.py first --execute
-uv run python scripts/reproduce.py second --execute
-uv run python scripts/reproduce.py stage3-continued --execute
-uv run python scripts/reproduce.py stage3-exposure --execute
-uv run python scripts/reproduce.py stage4-standard --execute
-uv run python scripts/reproduce.py stage4-balance --execute
-```
-
-| 段階 | 開始重み | 地形 | 更新回数・並列環境数 |
-|---|---|---|---|
-| baseline | ランダム | 公式不整地 | 1,500・4,096 |
-| first | baseline | 溝20–45 cm | 400・1,024 |
-| second | first | 溝40–70 cm | 400・1,024 |
-| stage3-continued | second | 溝40–70 cm | 400・1,024 |
-| stage3-exposure | second | 溝55–90 cm | 400・1,024 |
-| stage4-standard | stage3-exposure | 溝55–90 cm、標準報酬 | 400・1,024 |
-| stage4-balance | stage3-exposure | 同じ地形、複合報酬 | 400・1,024 |
-
-各段階の乱数seedは42です。継続学習ではactor・criticを読み込み、optimizerと更新回数は引き継ぎません。独立学習seedを変えた比較ではありません。`stage3-shaped`と`stage4-sequence`は補足探索を再実行する条件です。
-
-## 評価と動画
-
-```bash
-uv run python scripts/evaluate.py \
-  --checkpoint runs/stage4-standard/final.pt --gap-cm 85 \
-  --output runs/evaluation-85-standard --view readable
-uv run python scripts/evaluate.py \
-  --checkpoint runs/stage4-balance/final.pt --gap-cm 85 \
-  --output runs/evaluation-85-balance --view readable
-```
-
-溝幅75・80・85・90 cmを指定できます。各条件で開始位置を基準、15 cm手前、15 cm奥に変えて評価します。開始直後の1秒は静止指令、その後は前進速度1 m/sを指令します。描画は50 fps、等速です。`--view original`は元の描画、`--view side`は側面視点です。描画環境による非決定性があるため、新規推論は元の収録と別の試行として扱ってください。
-
-成功は対岸の所定範囲内で姿勢・接触条件を1秒間満たすことです。各足がその間に一度以上接触し、80%以上のフレームで少なくとも1足が支持する条件を含みます。4足の同時接地を常に要求する条件ではありません。転落、側方逸脱、時間内未完了は失敗です。失敗試行でもJSONを残し、次の開始位置へ進みます。起動失敗などJSONが残らない場合は処理を止めます。
-
-## CPU検査
-
-```bash
-uv sync --locked --link-mode copy
-uv run python scripts/check_actions_policy.py
-uv run python -m compileall -q scripts
-(cd scripts && uv run --project .. python -m unittest test_course_suite test_terrain_geometry test_recipe)
-```
-
-補足の接触状態機械テストはシミュレータ環境のPyTorchを使用します。
-
-```bash
-(cd scripts && ../.local/sim/bin/python -m unittest test_jump_sequence)
-```
-
-CPU検査は地形生成、成功判定、学習条件の依存関係を対象とします。GPUでの学習完了や第三者環境での数値再現を保証するものではありません。変更点と出典は[コードの来歴](docs/provenance.md)、第三者の権利関係は[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)を参照してください。
+- **報告書本文**：[`docs/report/report.md`](docs/report/report.md) / [`report.pdf`](https://github.com/kiri-i/pai-go2-32667/releases/download/v1.0.0/report.pdf)
+- **補足資料（係数・諸元・旧評価）**：[`docs/report/appendix.md`](docs/report/appendix.md) / [`appendix.pdf`](https://github.com/kiri-i/pai-go2-32667/releases/download/v1.0.0/appendix.pdf)
+- **比較動画（77.233秒）**：[`comparison.mp4`](https://github.com/kiri-i/pai-go2-32667/releases/download/v1.0.0/comparison.mp4)
+- **モデル仕様・6モデル（約41 MB）**：[`docs/models.md`](docs/models.md)（`baseline.pt`, `first.pt`, `second.pt`, `stage3-exposure.pt`, `stage4-standard.pt`, `stage4-balance.pt`）
+- **再現手順・来歴監査**：[`docs/reproduction.md`](docs/reproduction.md) / [`docs/provenance.md`](docs/provenance.md)
