@@ -15,6 +15,8 @@ STAGES = {
     "stage4-balance": ("stage3-exposure", "hard", "jump_balance"),
     "stage4-sequence": ("stage3-exposure", "hard", "sequence"),
 }
+MAIN_STAGES = ("baseline", "first", "second", "stage3-exposure", "stage4-standard", "stage4-balance")
+
 def command(stage, python, runs):
     output = runs / stage
     if stage == "baseline":
@@ -29,7 +31,7 @@ if __name__ == "__main__":
     parser.add_argument("--runs", type=Path, default=ROOT / "runs")
     parser.add_argument("--execute", action="store_true")
     a = parser.parse_args()
-    for stage in STAGES if a.stage == "all" else [a.stage]:
+    for stage in MAIN_STAGES if a.stage == "all" else [a.stage]:
         cmd = command(stage, a.python, a.runs.resolve())
         print(shlex.join(cmd), flush=True)
         if a.execute:

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="870.93pt" height="244.318517pt" viewBox="0 0 870.93 244.318517" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-02T09:04:47.766459</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 244.318517 
+L 870.93 244.318517 
+L 870.93 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 14.05224 176.413536 
+L 219.61944 176.413536 
+Q 223.04556 176.413536 223.04556 173.413265 
+L 223.04556 101.406768 
+Q 223.04556 98.406497 219.61944 98.406497 
+L 14.05224 98.406497 
+Q 10.62612 98.406497 10.62612 101.406768 
+L 10.62612 173.413265 
+Q 10.62612 176.413536 14.05224 176.413536 
+z
+" clip-path="url(#p99164cdbdb)" style="fill: #e9f1f5; stroke: #9cb4c3; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 281.2896 125.408934 
+L 548.52696 125.408934 
+Q 551.95308 125.408934 551.95308 122.408663 
+L 551.95308 62.403249 
+Q 551.95308 59.402978 548.52696 59.402978 
+L 281.2896 59.402978 
+Q 277.86348 59.402978 277.86348 62.403249 
+L 277.86348 122.408663 
+Q 277.86348 125.408934 281.2896 125.408934 
+z
+" clip-path="url(#p99164cdbdb)" style="fill: #f8ece9; stroke: #9cb4c3; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 281.2896 212.416784 
+L 548.52696 212.416784 
+Q 551.95308 212.416784 551.95308 209.416514 
+L 551.95308 149.411099 
+Q 551.95308 146.410829 548.52696 146.410829 
+L 281.2896 146.410829 
+Q 277.86348 146.410829 277.86348 149.411099 
+L 277.86348 209.416514 
+Q 277.86348 212.416784 281.2896 212.416784 
+z
+" clip-path="url(#p99164cdbdb)" style="fill: #e5f2f5; stroke: #9cb4c3; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 610.19712 176.413536 
+L 850.02552 176.413536 
+Q 853.45164 176.413536 853.45164 173.413265 
+L 853.45164 101.406768 
+Q 853.45164 98.406497 850.02552 98.406497 
+L 610.19712 98.406497 
+Q 606.771 98.406497 606.771 101.406768 
+L 606.771 173.413265 
+Q 606.771 176.413536 610.19712 176.413536 
+z
+" clip-path="url(#p99164cdbdb)" style="fill: #e9f1f5; stroke: #9cb4c3; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #183249" transform="translate(8.83584 135.970016)">同じ学習済みモデル（不整地歩行＋溝地</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #183249" transform="translate(62.83584 147.970016)">形の事前学習重み）</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #183249" transform="translate(276.90828 90.965956)">標準報酬モデル（対照群）：標準の不整地歩行報酬</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #183249" transform="translate(396.90828 102.965956)">を維持</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #183249" transform="translate(279.57828 177.973806)">報酬変更モデル（変更群）：安定性減点5項緩和＋</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #183249" transform="translate(354.24828 189.973806)">加点5項・減点2項追加</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #183249" transform="translate(621.56007 129.550016)">幅85cm・深さ40cm溝での固定評価（開</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #183249" transform="translate(664.033508 141.550016)">始位置3条件：-0.15, 0.0,</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #183249" transform="translate(702.223508 154.390016)">+0.15 m）</text>
+   </g>
+   <g id="patch_6">
+    <path d="M 225.382825 127.281905 
+Q 250.112815 110.406961 273.457535 94.47728 
+" style="fill: none; stroke: #183249; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 269.026178 95.079835 
+L 273.457535 94.47728 
+L 271.280764 98.383899 
+" style="fill: none; stroke: #183249; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 225.42791 147.472387 
+Q 250.111152 162.911844 273.372579 177.461952 
+" style="fill: none; stroke: #183249; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 271.041966 173.645115 
+L 273.372579 177.461952 
+L 268.920742 177.036341 
+" style="fill: none; stroke: #183249; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 554.290345 93.533255 
+Q 579.020335 110.408199 602.365055 126.33788 
+" style="fill: none; stroke: #183249; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 600.188284 122.431261 
+L 602.365055 126.33788 
+L 597.933698 125.735325 
+" style="fill: none; stroke: #183249; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 554.33543 178.352248 
+Q 579.018672 162.912791 602.280099 148.362683 
+" style="fill: none; stroke: #183249; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 597.828262 148.788294 
+L 602.280099 148.362683 
+L 599.949486 152.17952 
+" style="fill: none; stroke: #183249; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #183249" x="435.465" y="235.798517" transform="rotate(-0 435.465 235.798517)">共通の追加学習条件：溝幅55–90cm・1024環境・400反復・seed=42</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 15px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #183249" x="435.465" y="20.4" transform="rotate(-0 435.465 20.4)">同一条件での追加学習と報酬設計の比較</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p99164cdbdb">
+   <rect x="7.2" y="26.4" width="856.53" height="210.01895"/>
+  </clipPath>
+ </defs>
+</svg>

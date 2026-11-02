@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="628.2pt" height="181.104pt" viewBox="0 0 628.2 181.104" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-02T08:07:31.260577</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 181.104 
+L 628.2 181.104 
+L 628.2 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="table_1">
+    <g id="patch_2">
+     <path d="M 12.990566 86.832 
+L 76.686792 86.832 
+L 76.686792 56.832 
+L 12.990566 56.832 
+z
+" style="fill: #eaf0f4; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_1">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="44.838679" y="75.632" transform="rotate(-0 44.838679 75.632)">モデル</text>
+    </g>
+    <g id="patch_3">
+     <path d="M 76.686792 86.832 
+L 137.487736 86.832 
+L 137.487736 56.832 
+L 76.686792 56.832 
+z
+" style="fill: #eaf0f4; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_2">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="107.087264" y="75.632" transform="rotate(-0 107.087264 75.632)">15 cm遠い</text>
+    </g>
+    <g id="patch_4">
+     <path d="M 137.487736 86.832 
+L 183.812264 86.832 
+L 183.812264 56.832 
+L 137.487736 56.832 
+z
+" style="fill: #eaf0f4; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_3">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="160.65" y="75.632" transform="rotate(-0 160.65 75.632)">基準</text>
+    </g>
+    <g id="patch_5">
+     <path d="M 183.812264 86.832 
+L 244.613208 86.832 
+L 244.613208 56.832 
+L 183.812264 56.832 
+z
+" style="fill: #eaf0f4; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_4">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="214.212736" y="75.632" transform="rotate(-0 214.212736 75.632)">15 cm近い</text>
+    </g>
+    <g id="patch_6">
+     <path d="M 244.613208 86.832 
+L 290.937736 86.832 
+L 290.937736 56.832 
+L 244.613208 56.832 
+z
+" style="fill: #eaf0f4; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_5">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="267.775472" y="75.632" transform="rotate(-0 267.775472 75.632)">成功数</text>
+    </g>
+    <g id="patch_7">
+     <path d="M 12.990566 116.832 
+L 76.686792 116.832 
+L 76.686792 86.832 
+L 12.990566 86.832 
+z
+" style="fill: #ffffff; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_6">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="44.838679" y="105.632" transform="rotate(-0 44.838679 105.632)">標準報酬</text>
+    </g>
+    <g id="patch_8">
+     <path d="M 76.686792 116.832 
+L 137.487736 116.832 
+L 137.487736 86.832 
+L 76.686792 86.832 
+z
+" style="fill: #f8e9e6; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_7">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="107.087264" y="105.632" transform="rotate(-0 107.087264 105.632)">失敗</text>
+    </g>
+    <g id="patch_9">
+     <path d="M 137.487736 116.832 
+L 183.812264 116.832 
+L 183.812264 86.832 
+L 137.487736 86.832 
+z
+" style="fill: #f8e9e6; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_8">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="160.65" y="105.632" transform="rotate(-0 160.65 105.632)">失敗</text>
+    </g>
+    <g id="patch_10">
+     <path d="M 183.812264 116.832 
+L 244.613208 116.832 
+L 244.613208 86.832 
+L 183.812264 86.832 
+z
+" style="fill: #f8e9e6; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_9">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="214.212736" y="105.632" transform="rotate(-0 214.212736 105.632)">失敗</text>
+    </g>
+    <g id="patch_11">
+     <path d="M 244.613208 116.832 
+L 290.937736 116.832 
+L 290.937736 86.832 
+L 244.613208 86.832 
+z
+" style="fill: #ffffff; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_10">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="267.775472" y="105.336687" transform="rotate(-0 267.775472 105.336687)">0 / 3</text>
+    </g>
+    <g id="patch_12">
+     <path d="M 12.990566 146.832 
+L 76.686792 146.832 
+L 76.686792 116.832 
+L 12.990566 116.832 
+z
+" style="fill: #ffffff; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_11">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="44.838679" y="135.632" transform="rotate(-0 44.838679 135.632)">報酬変更</text>
+    </g>
+    <g id="patch_13">
+     <path d="M 76.686792 146.832 
+L 137.487736 146.832 
+L 137.487736 116.832 
+L 76.686792 116.832 
+z
+" style="fill: #e2f2f0; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_12">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="107.087264" y="135.632" transform="rotate(-0 107.087264 135.632)">成功</text>
+    </g>
+    <g id="patch_14">
+     <path d="M 137.487736 146.832 
+L 183.812264 146.832 
+L 183.812264 116.832 
+L 137.487736 116.832 
+z
+" style="fill: #e2f2f0; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_13">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="160.65" y="135.632" transform="rotate(-0 160.65 135.632)">成功</text>
+    </g>
+    <g id="patch_15">
+     <path d="M 183.812264 146.832 
+L 244.613208 146.832 
+L 244.613208 116.832 
+L 183.812264 116.832 
+z
+" style="fill: #e2f2f0; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_14">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="214.212736" y="135.632" transform="rotate(-0 214.212736 135.632)">成功</text>
+    </g>
+    <g id="patch_16">
+     <path d="M 244.613208 146.832 
+L 290.937736 146.832 
+L 290.937736 116.832 
+L 244.613208 116.832 
+z
+" style="fill: #ffffff; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_15">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="267.775472" y="135.336688" transform="rotate(-0 267.775472 135.336688)">3 / 3</text>
+    </g>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #183249" x="151.964151" y="17.76" transform="rotate(-0 151.964151 17.76)">元評価</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="table_2">
+    <g id="patch_17">
+     <path d="M 337.262264 86.832 
+L 400.958491 86.832 
+L 400.958491 56.832 
+L 337.262264 56.832 
+z
+" style="fill: #eaf0f4; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_17">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="369.110377" y="75.632" transform="rotate(-0 369.110377 75.632)">モデル</text>
+    </g>
+    <g id="patch_18">
+     <path d="M 400.958491 86.832 
+L 461.759434 86.832 
+L 461.759434 56.832 
+L 400.958491 56.832 
+z
+" style="fill: #eaf0f4; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_18">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="431.358962" y="75.632" transform="rotate(-0 431.358962 75.632)">15 cm遠い</text>
+    </g>
+    <g id="patch_19">
+     <path d="M 461.759434 86.832 
+L 508.083962 86.832 
+L 508.083962 56.832 
+L 461.759434 56.832 
+z
+" style="fill: #eaf0f4; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_19">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="484.921698" y="75.632" transform="rotate(-0 484.921698 75.632)">基準</text>
+    </g>
+    <g id="patch_20">
+     <path d="M 508.083962 86.832 
+L 568.884906 86.832 
+L 568.884906 56.832 
+L 508.083962 56.832 
+z
+" style="fill: #eaf0f4; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_20">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="538.484434" y="75.632" transform="rotate(-0 538.484434 75.632)">15 cm近い</text>
+    </g>
+    <g id="patch_21">
+     <path d="M 568.884906 86.832 
+L 615.209434 86.832 
+L 615.209434 56.832 
+L 568.884906 56.832 
+z
+" style="fill: #eaf0f4; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_21">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="592.04717" y="75.632" transform="rotate(-0 592.04717 75.632)">成功数</text>
+    </g>
+    <g id="patch_22">
+     <path d="M 337.262264 116.832 
+L 400.958491 116.832 
+L 400.958491 86.832 
+L 337.262264 86.832 
+z
+" style="fill: #ffffff; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_22">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="369.110377" y="105.632" transform="rotate(-0 369.110377 105.632)">標準報酬</text>
+    </g>
+    <g id="patch_23">
+     <path d="M 400.958491 116.832 
+L 461.759434 116.832 
+L 461.759434 86.832 
+L 400.958491 86.832 
+z
+" style="fill: #f8e9e6; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_23">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="431.358962" y="105.632" transform="rotate(-0 431.358962 105.632)">失敗</text>
+    </g>
+    <g id="patch_24">
+     <path d="M 461.759434 116.832 
+L 508.083962 116.832 
+L 508.083962 86.832 
+L 461.759434 86.832 
+z
+" style="fill: #f8e9e6; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_24">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="484.921698" y="105.632" transform="rotate(-0 484.921698 105.632)">失敗</text>
+    </g>
+    <g id="patch_25">
+     <path d="M 508.083962 116.832 
+L 568.884906 116.832 
+L 568.884906 86.832 
+L 508.083962 86.832 
+z
+" style="fill: #f8e9e6; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_25">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="538.484434" y="105.632" transform="rotate(-0 538.484434 105.632)">失敗</text>
+    </g>
+    <g id="patch_26">
+     <path d="M 568.884906 116.832 
+L 615.209434 116.832 
+L 615.209434 86.832 
+L 568.884906 86.832 
+z
+" style="fill: #ffffff; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_26">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="592.04717" y="105.336687" transform="rotate(-0 592.04717 105.336687)">0 / 3</text>
+    </g>
+    <g id="patch_27">
+     <path d="M 337.262264 146.832 
+L 400.958491 146.832 
+L 400.958491 116.832 
+L 337.262264 116.832 
+z
+" style="fill: #ffffff; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_27">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="369.110377" y="135.632" transform="rotate(-0 369.110377 135.632)">報酬変更</text>
+    </g>
+    <g id="patch_28">
+     <path d="M 400.958491 146.832 
+L 461.759434 146.832 
+L 461.759434 116.832 
+L 400.958491 116.832 
+z
+" style="fill: #e2f2f0; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_28">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="431.358962" y="135.632" transform="rotate(-0 431.358962 135.632)">成功</text>
+    </g>
+    <g id="patch_29">
+     <path d="M 461.759434 146.832 
+L 508.083962 146.832 
+L 508.083962 116.832 
+L 461.759434 116.832 
+z
+" style="fill: #e2f2f0; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_29">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="484.921698" y="135.632" transform="rotate(-0 484.921698 135.632)">成功</text>
+    </g>
+    <g id="patch_30">
+     <path d="M 508.083962 146.832 
+L 568.884906 146.832 
+L 568.884906 116.832 
+L 508.083962 116.832 
+z
+" style="fill: #f8e9e6; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_30">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="538.484434" y="135.632" transform="rotate(-0 538.484434 135.632)">失敗</text>
+    </g>
+    <g id="patch_31">
+     <path d="M 568.884906 146.832 
+L 615.209434 146.832 
+L 615.209434 116.832 
+L 568.884906 116.832 
+z
+" style="fill: #ffffff; stroke: #b7c8d3; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_31">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="592.04717" y="135.336688" transform="rotate(-0 592.04717 135.336688)">2 / 3</text>
+    </g>
+   </g>
+   <g id="text_32">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #183249" x="476.235849" y="17.76" transform="rotate(-0 476.235849 17.76)">撮影用再実行（同じ重み）</text>
+   </g>
+  </g>
+ </g>
+</svg>
