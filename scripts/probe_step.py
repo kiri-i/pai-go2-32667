@@ -404,14 +404,15 @@ with launch_simulation(cfg, args):
             "minimum_height_m": min_height,
             "upright": upright,
             "error": error,
-            "passed": passed,
+            "passed": passed,  # Legacy field; use course_outcome for task completion.
+            "locomotion_smoke_passed": passed,
             "samples": samples,
         }
         args.output.parent.mkdir(parents=True, exist_ok=True)
         with args.output.open("x", encoding="utf-8") as output:
             json.dump(result, output, indent=2, allow_nan=False)
         print(
-            f"GO2_LAB30_EVAL passed={passed} forward_m={forward:.4f} min_height_m={min_height:.4f} output={args.output}",
+            f"GO2_LAB30_EVAL course_outcome={result['course_outcome']} locomotion_smoke_passed={passed} forward_m={forward:.4f} min_height_m={min_height:.4f} output={args.output}",
             flush=True,
         )
         if (goal and not goal.success) or (not goal and not passed):

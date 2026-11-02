@@ -392,7 +392,7 @@ with launch_simulation(cfg, args):
             "foot_names": foot_names,
             "video_dir": str(args.video_dir) if args.video_dir else None,
             "video_frames": video_frames,
-            "camera": args.camera,
+            "camera": 'close_oblique' if args.video_dir else None,
             "probe_source_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
             "step_edge_x_m": 1.0,
             "probe_note": "passed is inherited locomotion smoke criterion, NOT step success",
@@ -419,14 +419,15 @@ with launch_simulation(cfg, args):
             "minimum_height_m": min_height,
             "upright": upright,
             "error": error,
-            "passed": passed,
+            "passed": passed,  # Legacy field; use course_outcome for task completion.
+            "locomotion_smoke_passed": passed,
             "samples": samples,
         }
         args.output.parent.mkdir(parents=True, exist_ok=True)
         with args.output.open("x", encoding="utf-8") as output:
             json.dump(result, output, indent=2, allow_nan=False)
         print(
-            f"GO2_LAB30_EVAL passed={passed} forward_m={forward:.4f} min_height_m={min_height:.4f} output={args.output}",
+            f"GO2_LAB30_EVAL course_outcome={result['course_outcome']} locomotion_smoke_passed={passed} forward_m={forward:.4f} min_height_m={min_height:.4f} output={args.output}",
             flush=True,
         )
         if (goal and not goal.success) or (not goal and not passed):
